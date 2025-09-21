@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './DashBoard.css';
+import './Dashboard.css';
 import { callApi, getSession, setSession } from './api';
 import MenuBar from './MenuBar';
 import Donor from './Donor';
