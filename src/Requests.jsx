@@ -24,7 +24,7 @@ class Requests extends Component {
     }
 
     loadInventoryAndRequests = () => {
-        callApi("GET", "http://bbackend-production-da9c.up.railway.app/requests/inventory", "", (invResponse) => {
+        callApi("GET", "https://bbackend-production-da9c.up.railway.app/requests/inventory", "", (invResponse) => {
             if (invResponse.includes("401::")) {
                 alert(invResponse.split("::")[1]);
                 return;
@@ -35,7 +35,7 @@ class Requests extends Component {
     }
 
     loadRequests = () => {
-        callApi("GET", "http://bbackend-production-da9c.up.railway.app/requests/readrequest", "", (res) => {
+        callApi("GET", "https://bbackend-production-da9c.up.railway.app/requests/readrequest", "", (res) => {
             if (res.includes("401::")) { alert(res.split("::")[1]); return; }
 
             let joblist = JSON.parse(res);
@@ -47,7 +47,7 @@ class Requests extends Component {
                     r.status = 'accepted';
                     this.state.inventory[key] = available - 1;
                     // Optionally, update backend for accepted status
-                    callApi("PUT", `http://bbackend-production-da9c.up.railway.app/requests/accept/${r.id}`, "", () => {});
+                    callApi("PUT", `https://bbackend-production-da9c.up.railway.app/requests/accept/${r.id}`, "", () => {});
                 }
                 return r;
             });
@@ -61,8 +61,8 @@ class Requests extends Component {
     saveRequest = () => {
         const data = JSON.stringify({ ...this.state, status: "pending" });
         const url = this.state.id
-            ? "http://bbackend-production-da9c.up.railway.app/requests/update"
-            : "http://bbackend-production-da9c.up.railway.app/requests/insert";
+            ? "https://bbackend-production-da9c.up.railway.app/requests/update"
+            : "https://bbackend-production-da9c.up.railway.app/requests/insert";
 
         callApi(this.state.id ? "PUT" : "POST", url, data, this.afterSave);
     }
@@ -81,7 +81,7 @@ class Requests extends Component {
     closePopup = () => document.getElementById("jppopup").style.display = "none";
 
     updateRequest = (id) => {
-        callApi("GET", "http://bbackend-production-da9c.up.railway.app/requests/getrequest/" + id, "", (res) => {
+        callApi("GET", "https://bbackend-production-da9c.up.railway.app/requests/getrequest/" + id, "", (res) => {
             if (res.includes("401::")) { alert(res.split("::")[1]); return; }
             this.setState({ ...JSON.parse(res) });
             this.showPopUp();
@@ -90,7 +90,7 @@ class Requests extends Component {
 
     deleteRequest = (id) => {
         if (!window.confirm("Are you sure?")) return;
-        callApi("DELETE", "http://bbackend-production-da9c.up.railway.app/requests/delete/" + id, "", this.afterSave);
+        callApi("DELETE", "https://bbackend-production-da9c.up.railway.app/requests/delete/" + id, "", this.afterSave);
     }
 
     render() {

@@ -12,8 +12,8 @@ class MenuBar extends Component {
     {  
         let  csr = getSession("csrid");
         let data= JSON.stringify({csrid:csr});
-        //callApi("POST","http://bbackend-production-da9c.up.railway.app/menus/getmenusbyrole",data,this.loadMenus);
-     callApi("POST","http://bbackend-production-da9c.up.railway.app/menus/getmenus","",this.loadMenus);
+        //callApi("POST","https://bbackend-production-da9c.up.railway.app/menus/getmenusbyrole",data,this.loadMenus);
+     callApi("POST","https://bbackend-production-da9c.up.railway.app/menus/getmenus","",this.loadMenus);
     }
     loadMenus(response)
     {

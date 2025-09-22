@@ -13,7 +13,7 @@ class Inventory extends Component {
     }
 
     loadInventory = () => {
-        callApi("GET", "http://bbackend-production-da9c.up.railway.app/requests/inventory", "", (response) => {
+        callApi("GET", "https://bbackend-production-da9c.up.railway.app/requests/inventory", "", (response) => {
             if (response.includes("401::")) {
                 alert(response.split("::")[1]);
                 return;
