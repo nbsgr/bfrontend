@@ -23,7 +23,7 @@ class Dashboard extends Component {
         }
         
         let data=JSON.stringify({csrid:crs});
-        callApi("POST","http://localhost:8080/users/getfullname",data,this.fullnameResponse);
+        callApi("POST","http://bbackend-production-da9c.up.railway.app/users/getfullname",data,this.fullnameResponse);
     }
     fullnameResponse(response)
     {

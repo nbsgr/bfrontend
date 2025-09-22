@@ -22,7 +22,7 @@ class Donor extends Component {
     }
 
     componentDidMount() {
-        callApi("GET", "http://localhost:8080/donors/readdonor", "", this.readDonorResponse);
+        callApi("GET", "http://bbackend-production-da9c.up.railway.app/donors/readdonor", "", this.readDonorResponse);
     }
 
     readDonorResponse(response) {
@@ -60,9 +60,9 @@ class Donor extends Component {
         const data = JSON.stringify(this.state);
 
         if (this.state.id === "") {
-            callApi("POST", "http://localhost:8080/donors/insert", data, this.saveDonorResponse);
+            callApi("POST", "http://bbackend-production-da9c.up.railway.app/donors/insert", data, this.saveDonorResponse);
         } else {
-            callApi("PUT", "http://localhost:8080/donors/update", data, this.saveDonorResponse);
+            callApi("PUT", "http://bbackend-production-da9c.up.railway.app/donors/update", data, this.saveDonorResponse);
         }
     }
 
@@ -91,7 +91,7 @@ class Donor extends Component {
     }
 
     updateDonor(id) {
-        callApi("GET", "http://localhost:8080/donors/getdonor/" + id, "", this.updateDonorresponse);
+        callApi("GET", "http://bbackend-production-da9c.up.railway.app/donors/getdonor/" + id, "", this.updateDonorresponse);
     }
 
     updateDonorresponse(response) {
@@ -115,7 +115,7 @@ class Donor extends Component {
     deleteDonor(id) {
         let resp = window.confirm("Are you sure that you want to delete?");
         if (!resp) return;
-        callApi("DELETE", "http://localhost:8080/donors/delete/" + id, "", this.saveDonorResponse);
+        callApi("DELETE", "http://bbackend-production-da9c.up.railway.app/donors/delete/" + id, "", this.saveDonorResponse);
     }
 
     render() {

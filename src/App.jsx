@@ -113,7 +113,7 @@ class App extends Component {
             password:signuppassowrd.value
 
         });
-        callApi("POST","http://localhost:8080/users/signup",data,this.getResponse);
+        callApi("POST","http://bbackend-production-da9c.up.railway.app/users/signup",data,this.getResponse);
 
     }
     getResponse(res)
@@ -138,7 +138,7 @@ class App extends Component {
             username.focus();
             return;
         }
-        let url="http://localhost:8080/users/forgetpassword/"+username.value;
+        let url="http://bbackend-production-da9c.up.railway.app/users/forgetpassword/"+username.value;
         callApi("GET",url,"",this.forgetpasswordResponse);
     }
     forgetpasswordResponse(res){
@@ -173,7 +173,7 @@ class App extends Component {
             email:username.value,
             password:password.value
         });
-        callApi("POST", "http://localhost:8080/users/signin", data, this.signinResponse);
+        callApi("POST", "http://bbackend-production-da9c.up.railway.app/users/signin", data, this.signinResponse);
     }
     signinResponse(res)
     {
